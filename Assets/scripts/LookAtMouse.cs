@@ -2,15 +2,14 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+//source: unknown
+
 public class LookAtMouse : MonoBehaviour
 {
-
     public float speed;
 
-    // Update is called once per frame
     void Update()
     {
-        
     }
 
     void FixedUpdate () 

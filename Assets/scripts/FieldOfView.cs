@@ -12,7 +12,7 @@ public class FieldOfView : MonoBehaviour
     public LayerMask enemiesMask;
     public LayerMask obstaclesMask;
 
-    [HideInInspector]
+    //[HideInInspector]
 	public List<Transform> visibleTargets = new List<Transform>();
 
 
@@ -24,7 +24,7 @@ public class FieldOfView : MonoBehaviour
 	IEnumerator FindTargetsWithDelay(float delay) {
 		while (true) {
 			yield return new WaitForSeconds (delay);
-			FindVisibleTargets ();
+			StartAndStopTargets();
 		}
 	}
     void FindVisibleTargets() {
@@ -38,13 +38,45 @@ public class FieldOfView : MonoBehaviour
 				float dstToTarget = Vector3.Distance (transform.position, target.position);
 
 				if (!Physics.Raycast (transform.position, dirToTarget, dstToTarget, obstaclesMask)) {
+					EnemyMovement enemy = target.GetComponent<EnemyMovement>();
+					enemy.Hit();
 					visibleTargets.Add (target);
 				}
+			} else
+			{
+				EnemyMovement enemy = target.GetComponent<EnemyMovement>();
+				enemy.UnHit();
 			}
 		}
     }
 
-    public Vector3 DirFromAngle(float angleInDegrees, bool angleIsGlobal) {
+	void StartAndStopTargets()
+    {
+		visibleTargets.Clear();
+		Collider[] targetsInViewRadius = Physics.OverlapSphere(transform.position, 100000, enemiesMask);
+
+		for (int i = 0; i < targetsInViewRadius.Length; i++)
+		{
+			Transform target = targetsInViewRadius[i].transform;
+			Vector3 dirToTarget = (target.position - transform.position).normalized;
+			float dstToTarget = Vector3.Distance(transform.position, target.position);
+
+			if (Vector3.Angle(transform.forward, dirToTarget) < viewAngle / 2 && !Physics.Raycast(transform.position, dirToTarget, dstToTarget, obstaclesMask))
+			{
+				EnemyMovement enemy = target.GetComponent<EnemyMovement>();
+				enemy.Hit();
+				visibleTargets.Add(target);
+			}
+			else
+			{
+				EnemyMovement enemy = target.GetComponent<EnemyMovement>();
+				enemy.UnHit();
+			}
+		}
+
+	}
+
+	public Vector3 DirFromAngle(float angleInDegrees, bool angleIsGlobal) {
 		if (!angleIsGlobal) {
 			angleInDegrees += transform.eulerAngles.y;
 		}

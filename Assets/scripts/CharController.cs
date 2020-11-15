@@ -6,7 +6,8 @@ using UnityEngine;
 public class CharController : MonoBehaviour
 {
 
-    public float movespeed = 4f;
+    public float defaultSpeed = 4f;
+    public float movespeed;
 
     Vector3 forward,right;
 
@@ -15,6 +16,7 @@ public class CharController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        movespeed = defaultSpeed;
         rb = GetComponent<Rigidbody>();
         forward = Camera.main.transform.forward;
         forward.y = 0;
@@ -23,14 +25,15 @@ public class CharController : MonoBehaviour
         
     }
 
-    // Update is called once per frame
     void Update()
     {
 
         Vector3 direction = new Vector3(Input.GetAxisRaw("HorizontalKey"),0, Input.GetAxisRaw("VerticalKey"));
         if(direction.magnitude > 0.1f)
             Move();
-            
+        
+
+
     }
 
     private void Move()
@@ -40,8 +43,16 @@ public class CharController : MonoBehaviour
 
         Vector3 heading = Vector3.Normalize(rightMovement + upMovement);
 
-        //transform.forward = heading;
         rb.MovePosition(transform.position += heading * movespeed * Time.deltaTime);
-        //transform.position += heading * movespeed * Time.deltaTime;
+
+    }
+
+    public IEnumerator ApplySpeedPowerUp(SpeedPowerUp speedPowerUp)
+    {
+
+        movespeed = speedPowerUp.moveSpeed;
+        yield return new WaitForSeconds(speedPowerUp.durationInSec);
+        movespeed = defaultSpeed;
+
     }
 }

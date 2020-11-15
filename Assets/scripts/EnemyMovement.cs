@@ -7,7 +7,7 @@ public class EnemyMovement : MonoBehaviour
     // https://www.youtube.com/watch?v=0YtalWfPd4w
     public Transform player;
     private Rigidbody rb;
-    private float speed = 4f;
+    public float enemyspeed = 10f;
 
     // Start is called before the first frame update
     void Start()
@@ -18,18 +18,26 @@ public class EnemyMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Vector3 pos = Vector3.MoveTowards(transform.position, player.position, speed * Time.fixedDeltaTime);
+        Vector3 pos = Vector3.MoveTowards(transform.position, player.position, enemyspeed * Time.fixedDeltaTime);
         rb.MovePosition(pos);
         //Debug.Log(pos);
     }
 
     public void Hit()
     {
-        speed = 0f;
+        enemyspeed = 0f;
     }
 
     public void UnHit()
     {
-        speed = 4f;
+        enemyspeed = 4f;
+    }
+
+    private void OnTriggerEnter(Collider other){
+        if (other.CompareTag("Player"))
+        {
+            Time.timeScale = 0;
+            Debug.LogError("Not error but y suck in this game");
+        }
     }
 }

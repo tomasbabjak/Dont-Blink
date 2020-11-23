@@ -10,9 +10,7 @@ public class RedBull : MonoBehaviour
      {
          if (other.CompareTag("Player"))
          {
-             
              //other.GetComponent<CharController>().ApplySpeedPowerUp(speedPowerUp);
-
             other.GetComponent<CharController>().StartCoroutine(other.GetComponent<CharController>().ApplySpeedPowerUp(speedPowerUp));
             Destroy(gameObject);
          }

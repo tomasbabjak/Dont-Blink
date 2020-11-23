@@ -6,6 +6,7 @@ using UnityEngine;
 public class CharController : MonoBehaviour
 {
 
+    public Dictionary<string, int> inventory; 
     public float defaultSpeed = 4f;
     public float movespeed;
 
@@ -22,6 +23,8 @@ public class CharController : MonoBehaviour
         forward.y = 0;
         forward = Vector3.Normalize(forward);
         right = Quaternion.Euler(new Vector3(0,90,0)) * forward;
+
+        inventory = new Dictionary<string, int>();
         
     }
 
@@ -55,4 +58,16 @@ public class CharController : MonoBehaviour
         movespeed = defaultSpeed;
 
     }
+
+
+    private void OnTriggerEnter(Collider other)
+    {
+        Debug.Log("colison" + other.gameObject.name);
+        if (other.CompareTag("Collectable"))
+        {
+            
+            Destroy(other.gameObject);
+        }
+    }
+
 }

@@ -985,6 +985,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speedPowerUp: {fileID: 11400000, guid: 9461adb894d0d27748fd288be9ced44a, type: 2}
+  charController: {fileID: 0}
 --- !u!1 &624379003
 GameObject:
   m_ObjectHideFlags: 0
@@ -3259,9 +3260,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   autoReduce: 1
+  batteryLife: 100
   flashlightToggleKey: 108
   changeLightSetting: 101
   flashlights: {fileID: 11400000, guid: 0f07bac706ec7fdc987f22da37b37015, type: 2}
+  flashlight: {fileID: 0}
 --- !u!1 &1525522932
 GameObject:
   m_ObjectHideFlags: 0

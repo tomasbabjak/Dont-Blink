@@ -6,7 +6,7 @@ using UnityEngine;
 public class CharController : MonoBehaviour
 {
 
-    public Dictionary<string, int> inventory; 
+    //public Dictionary<string, int> inventory; 
     public float defaultSpeed = 4f;
     public float movespeed;
 
@@ -24,7 +24,7 @@ public class CharController : MonoBehaviour
         forward = Vector3.Normalize(forward);
         right = Quaternion.Euler(new Vector3(0,90,0)) * forward;
 
-        inventory = new Dictionary<string, int>();
+        //inventory = new Dictionary<string, int>();
         
     }
 
@@ -35,8 +35,6 @@ public class CharController : MonoBehaviour
         if(direction.magnitude > 0.1f)
             Move();
         
-
-
     }
 
     private void Move()
@@ -49,7 +47,7 @@ public class CharController : MonoBehaviour
         rb.MovePosition(transform.position += heading * movespeed * Time.deltaTime);
 
     }
-
+/*
     public IEnumerator ApplySpeedPowerUp(SpeedPowerUp speedPowerUp)
     {
 
@@ -57,17 +55,17 @@ public class CharController : MonoBehaviour
         yield return new WaitForSeconds(speedPowerUp.durationInSec);
         movespeed = defaultSpeed;
 
-    }
+    }*/
 
 
-    private void OnTriggerEnter(Collider other)
+    /*private void OnTriggerEnter(Collider other)
     {
-        Debug.Log("colison" + other.gameObject.name);
+        //Debug.Log("colison" + other.gameObject.name);
         if (other.CompareTag("Collectable"))
         {
             
             Destroy(other.gameObject);
         }
-    }
+    }*/
 
 }

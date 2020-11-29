@@ -12,5 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ed585d9677152fdea9502d60fa6c7be4, type: 3}
   m_Name: Duracell
   m_EditorClassIdentifier: 
-  addIntensity: 100
+  addIntensity: 200
   durationInSec: 5

@@ -21,11 +21,12 @@ public class EnemyMovement : MonoBehaviour
     }
 
     // Update is called once per frame
-    void LateUpdate()
+    void FixedUpdate()
     {
         if (enemyspeed > defaultSpeed/3){
         Vector3 pos = Vector3.MoveTowards(transform.position, player.position, enemyspeed * Time.deltaTime);
         rb.MovePosition(pos);
+        transform.LookAt(player,Vector3.up);
         }
 
         //Debug.Log(enemyspeed);

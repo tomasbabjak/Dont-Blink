@@ -984,8 +984,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 866a3d417a3eb6f828cf09b79e9ab411, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speedPowerUp: {fileID: 11400000, guid: 9461adb894d0d27748fd288be9ced44a, type: 2}
-  charController: {fileID: 0}
 --- !u!1 &624379003
 GameObject:
   m_ObjectHideFlags: 0
@@ -1749,7 +1747,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3db0baef1566d8e8cb73e608518314cd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  flashlightPowerUp: {fileID: 11400000, guid: 15ef3a71d2f7578948bcce904c4f699d, type: 2}
 --- !u!65 &911354689
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -3265,6 +3262,8 @@ MonoBehaviour:
   changeLightSetting: 101
   flashlights: {fileID: 11400000, guid: 0f07bac706ec7fdc987f22da37b37015, type: 2}
   flashlight: {fileID: 0}
+  stateIcon: {fileID: 0}
+  healthBar: {fileID: 0}
 --- !u!1 &1525522932
 GameObject:
   m_ObjectHideFlags: 0
@@ -5486,7 +5485,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 952864090045477226, guid: 310709cbe6e53b5d395f7ab89c716707, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.47
+      value: 0.66
       objectReference: {fileID: 0}
     - target: {fileID: 952864090045477226, guid: 310709cbe6e53b5d395f7ab89c716707, type: 3}
       propertyPath: m_LocalPosition.z
@@ -5535,6 +5534,10 @@ PrefabInstance:
     - target: {fileID: 5063877507094885561, guid: 310709cbe6e53b5d395f7ab89c716707, type: 3}
       propertyPath: m_Size.z
       value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5063877507094885561, guid: 310709cbe6e53b5d395f7ab89c716707, type: 3}
+      propertyPath: m_Enabled
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5063877507094885561, guid: 310709cbe6e53b5d395f7ab89c716707, type: 3}
       propertyPath: m_Center.x
@@ -5615,6 +5618,10 @@ PrefabInstance:
     - target: {fileID: 5154951947481854828, guid: 310709cbe6e53b5d395f7ab89c716707, type: 3}
       propertyPath: powerUp.startOfAction.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 5407147538536095139, guid: 310709cbe6e53b5d395f7ab89c716707, type: 3}
+      propertyPath: m_Enabled
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 5154951947481854828, guid: 310709cbe6e53b5d395f7ab89c716707, type: 3}

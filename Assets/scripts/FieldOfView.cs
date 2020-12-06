@@ -21,8 +21,8 @@ public class FieldOfView : MonoBehaviour
 
 
     void Start() {
-
-		allEnemies = FindGameObjectsInLayer(9);
+		/*WARNING HARDCODED LAYER*/
+		allEnemies = FindGameObjectsInLayer(13);
 		//StartCoroutine (FindTargetsWithDelay(.02f));
 	}
 	void FixedUpdate()
@@ -37,6 +37,7 @@ public class FieldOfView : MonoBehaviour
 			StartAndStopTargets();
 		}
 	}*/
+
    /* void FindVisibleTargets() {
         visibleTargets.Clear();
 		Collider[] targetsInViewRadius = Physics.OverlapSphere (transform.position, viewRadius, enemiesMask);

@@ -49,7 +49,7 @@ public class EyeItemController : MonoBehaviour
 
     private void ThrowEye()
     {
-        var ey = Instantiate(eyePrefab, transform.position + transform.forward, Quaternion.identity);
+        var ey = Instantiate(eyePrefab, transform.position + transform.forward + transform.up + transform.up, Quaternion.identity);
         var rb = ey.GetComponent<Rigidbody>();
         rb.AddForce(transform.forward * throwStrength);
         Object.Destroy(ey, eyeDuration);

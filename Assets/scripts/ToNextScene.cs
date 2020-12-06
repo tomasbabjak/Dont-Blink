@@ -12,11 +12,22 @@ public class ToNextScene : MonoBehaviour
         nextSceneLoad = SceneManager.GetActiveScene().buildIndex + 1;
     }
 
+    public void reloadScene() {
+        Time.timeScale = 1;
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+
+    }
+
+    public void LoadNextScene() {
+        SceneManager.LoadScene(nextSceneLoad);
+    }
+
     private void OnTriggerEnter(Collider player)
     {
         if (player.CompareTag("Player"))
         {
-            SceneManager.LoadScene(nextSceneLoad);
+            LoadNextScene();
+            //SceneManager.LoadScene(nextSceneLoad);
         }
     }
 }

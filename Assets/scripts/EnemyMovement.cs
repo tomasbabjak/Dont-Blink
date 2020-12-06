@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class EnemyMovement : MonoBehaviour
 {
@@ -10,7 +11,13 @@ public class EnemyMovement : MonoBehaviour
     public float enemyspeed = 4f;
     public float defaultSpeed = 4f;
 
+    public GameObject gameOverUI;
+
     public bool inMove = true;
+
+    void Awake() {
+        gameOverUI.SetActive(false);
+    }
     //private int loop = 0;
 
     // Start is called before the first frame update
@@ -65,7 +72,8 @@ public class EnemyMovement : MonoBehaviour
     private void OnTriggerEnter(Collider other){
         if (other.CompareTag("Player"))
         {
-            //Time.timeScale = 0;
+            Time.timeScale = 0;
+            gameOverUI.SetActive(true);
             Debug.LogError("Not error but y suck in this game");
         }
     }

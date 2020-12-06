@@ -11,7 +11,10 @@ public class BatteryPowerUpHandler : MonoBehaviour
      {
          if (other.CompareTag("Player"))
          {
-             foreach (Transform child in other.transform)
+             GameObject flashlight = GameObject.FindWithTag("Flashlight");
+             flashlight.GetComponent<BatteryPowerUpController>().CurrentBatterySize += 1;
+             Destroy(gameObject);
+            /* foreach (Transform child in other.transform)
              {
                  if (child.CompareTag("Flashlight"))
                  {
@@ -20,7 +23,7 @@ public class BatteryPowerUpHandler : MonoBehaviour
                      Destroy(gameObject);
                      break;
                  }
-             }
+             }*/
          }
      }
 

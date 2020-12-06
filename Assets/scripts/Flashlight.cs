@@ -65,7 +65,7 @@ public class Flashlight : MonoBehaviour
 
     void Start()
     {
-        fow = gameObject.transform.parent.gameObject.GetComponent<FieldOfView>();
+        fow = gameObject.transform.root.gameObject.GetComponent<FieldOfView>();
         flashlight = gameObject.GetComponent<Light>();
         InitializeDefaults();
         ToogleFlashlight(!isActive);

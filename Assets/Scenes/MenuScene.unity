@@ -215,17 +215,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 50, y: -30, z: 0}
---- !u!114 &417353761 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 5711600358736078095, guid: 690a9e91480352154973cb3a2440efc8, type: 3}
-  m_PrefabInstance: {fileID: 806591103}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ee78da72939ba4b439d03c946a52429a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &734907920
 GameObject:
   m_ObjectHideFlags: 0
@@ -321,6 +310,7 @@ GameObject:
   - component: {fileID: 782697406}
   - component: {fileID: 782697405}
   - component: {fileID: 782697404}
+  - component: {fileID: 782697407}
   m_Layer: 5
   m_Name: Button
   m_TagString: Untagged
@@ -391,7 +381,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 417353761}
+      - m_Target: {fileID: 782697407}
         m_TargetAssemblyTypeName: ToNextScene, Assembly-CSharp
         m_MethodName: LoadNextScene
         m_Mode: 1
@@ -441,63 +431,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 782697402}
   m_CullTransparentMesh: 0
---- !u!1001 &806591103
-PrefabInstance:
+--- !u!114 &782697407
+MonoBehaviour:
   m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 3008379988057286214, guid: 690a9e91480352154973cb3a2440efc8, type: 3}
-      propertyPath: m_RootOrder
-      value: 4
-      objectReference: {fileID: 0}
-    - target: {fileID: 3008379988057286214, guid: 690a9e91480352154973cb3a2440efc8, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 258.04715
-      objectReference: {fileID: 0}
-    - target: {fileID: 3008379988057286214, guid: 690a9e91480352154973cb3a2440efc8, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 215.25702
-      objectReference: {fileID: 0}
-    - target: {fileID: 3008379988057286214, guid: 690a9e91480352154973cb3a2440efc8, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: -0.00793457
-      objectReference: {fileID: 0}
-    - target: {fileID: 3008379988057286214, guid: 690a9e91480352154973cb3a2440efc8, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 3008379988057286214, guid: 690a9e91480352154973cb3a2440efc8, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3008379988057286214, guid: 690a9e91480352154973cb3a2440efc8, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3008379988057286214, guid: 690a9e91480352154973cb3a2440efc8, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3008379988057286214, guid: 690a9e91480352154973cb3a2440efc8, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3008379988057286214, guid: 690a9e91480352154973cb3a2440efc8, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3008379988057286214, guid: 690a9e91480352154973cb3a2440efc8, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8721781544701151774, guid: 690a9e91480352154973cb3a2440efc8, type: 3}
-      propertyPath: m_Name
-      value: LevelManager
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 690a9e91480352154973cb3a2440efc8, type: 3}
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 782697402}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ee78da72939ba4b439d03c946a52429a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  nextSceneLoad: 0
 --- !u!1 &972183853
 GameObject:
   m_ObjectHideFlags: 0

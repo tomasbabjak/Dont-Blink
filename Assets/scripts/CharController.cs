@@ -14,6 +14,13 @@ public class CharController : MonoBehaviour
 
     Rigidbody rb;
     animationStateController animationController;
+    //public GameObject ui;
+
+    void Awake()
+    {
+        //DontDestroyOnLoad(gameObject);
+        //DontDestroyOnLoad(ui);
+    }
 
     // Start is called before the first frame update
     void Start()
@@ -56,7 +63,7 @@ public class CharController : MonoBehaviour
         //Debug.Log(AngleFromToPoint(heading,transform.forward,  Vector3.up));
         //Debug.Log(Quaternion.FromToRotation(Vector3.up, transform.forward - heading).eulerAngles.z);
         float angle = Vector3.SignedAngle(transform.forward, heading, Vector3.up);
-        Debug.Log(Vector3.Angle(forward,transform.forward));
+        //Debug.Log(Vector3.Angle(forward,transform.forward));
         bool upDown = false;
         if (Vector3.Angle(forward,transform.forward) > 90f)
         {
@@ -70,25 +77,6 @@ public class CharController : MonoBehaviour
         //oto4enie o x stupnov uhla a to posla5 xy/z do animatora
     }
 
-/*
-    public IEnumerator ApplySpeedPowerUp(SpeedPowerUp speedPowerUp)
-    {
 
-        movespeed = speedPowerUp.moveSpeed;
-        yield return new WaitForSeconds(speedPowerUp.durationInSec);
-        movespeed = defaultSpeed;
-
-    }*/
-
-
-    /*private void OnTriggerEnter(Collider other)
-    {
-        //Debug.Log("colison" + other.gameObject.name);
-        if (other.CompareTag("Collectable"))
-        {
-            
-            Destroy(other.gameObject);
-        }
-    }*/
 
 }

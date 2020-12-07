@@ -35,6 +35,12 @@ public class SpeedPowerUpController : MonoBehaviour
             }
         }
     }
+
+    void Awake()
+    {
+        CurrentInventorySize = LevelManager.speedPowerUps;
+    }
+
     void Start()
     {
         charController = gameObject.GetComponent<CharController>();

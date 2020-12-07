@@ -1,6 +1,8 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
+using TMPro;
 
 public class EyeItemController : MonoBehaviour
 {
@@ -8,6 +10,7 @@ public class EyeItemController : MonoBehaviour
     public GameObject eyePrefab;
     public float eyeDuration = 10f;
     public float throwStrength = 500;
+    [SerializeField] TextMeshProUGUI eyeSizeText = null;
 
     public int maxEyeSize = 4;
 
@@ -24,15 +27,22 @@ public class EyeItemController : MonoBehaviour
             else 
             {
                 _currentEyeSize = value;
+                updateGUISize();
             }
         }
     }
 
     public CharController charController;
 
+    void Awake()
+    {
+        CurrentEyeSize = LevelManager.eys;
+    }
+
     void Start()
     {
         charController = gameObject.GetComponent<CharController>();
+        updateGUISize();
     }
 
     void Update()
@@ -43,7 +53,20 @@ public class EyeItemController : MonoBehaviour
             {
                 ThrowEye();
                 _currentEyeSize -= 1;
+                updateGUISize();
             }
+        }
+    }
+
+    private void updateGUISize()
+    {
+        if (_currentEyeSize > 0)
+        {
+            eyeSizeText.text = _currentEyeSize.ToString();
+        }
+        else
+        {
+            eyeSizeText.text = "";
         }
     }
 

@@ -33,6 +33,11 @@ public class BatteryPowerUpController : MonoBehaviour
 
     public BatteryPowerUp batteryPowerUp = null;
 
+    void Awake()
+    {
+        CurrentBatterySize = LevelManager.batteries;
+    }
+
     void Start()
     {
         UpdateBatteryGuiCount();

@@ -38,7 +38,8 @@ public class SpeedPowerUpController : MonoBehaviour
 
     void Awake()
     {
-        CurrentInventorySize = LevelManager.speedPowerUps;
+        CurrentInventorySize = LevelManager.GetLevelData().speedPowerUps;
+        //CurrentInventorySize = LevelManager.speedPowerUps;
     }
 
     void Start()

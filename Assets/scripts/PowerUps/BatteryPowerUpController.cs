@@ -35,7 +35,8 @@ public class BatteryPowerUpController : MonoBehaviour
 
     void Awake()
     {
-        CurrentBatterySize = LevelManager.batteries;
+        CurrentBatterySize = LevelManager.GetLevelData().batteries;
+        //CurrentBatterySize = LevelManager;
     }
 
     void Start()

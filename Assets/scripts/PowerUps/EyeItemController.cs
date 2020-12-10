@@ -36,7 +36,8 @@ public class EyeItemController : MonoBehaviour
 
     void Awake()
     {
-        CurrentEyeSize = LevelManager.eys;
+        CurrentEyeSize = LevelManager.GetLevelData().eys;
+        //CurrentEyeSize = LevelManager.eys;
     }
 
     void Start()

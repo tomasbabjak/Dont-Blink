@@ -34,9 +34,18 @@ public class ToNextScene : MonoBehaviour
 
     private void saveState(Collider player)
     {
+        GameObject flashlight = GameObject.FindWithTag("Flashlight");
+        PlayerData playerData = new PlayerData(
+            flashlight.GetComponent<BatteryPowerUpController>().CurrentBatterySize,
+            player.GetComponent<SpeedPowerUpController>().CurrentInventorySize,
+            player.GetComponent<EyeItemController>().CurrentEyeSize
+        );
+        LevelManager.SaveLevelData(playerData);
+        /*
         LevelManager.speedPowerUps = player.GetComponent<SpeedPowerUpController>().CurrentInventorySize;
         LevelManager.eys = player.GetComponent<EyeItemController>().CurrentEyeSize;
         GameObject flashlight = GameObject.FindWithTag("Flashlight");
         LevelManager.batteries = flashlight.GetComponent<BatteryPowerUpController>().CurrentBatterySize;
+        */
     }
 }

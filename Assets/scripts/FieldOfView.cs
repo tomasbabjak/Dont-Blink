@@ -15,7 +15,7 @@ public class FieldOfView : MonoBehaviour
 
 	public LayerMask mirrorsMask;
 
-    //[HideInInspector]
+    [HideInInspector]
 	public List<Transform> visibleTargets = new List<Transform>();
 	public List<Transform> allEnemies = new List<Transform>();
 
@@ -23,43 +23,12 @@ public class FieldOfView : MonoBehaviour
     void Start() {
 		/*WARNING HARDCODED LAYER*/
 		allEnemies = FindGameObjectsInLayer(13);
-		//StartCoroutine (FindTargetsWithDelay(.02f));
 	}
 	void FixedUpdate()
 	{
 		StartAndStopTargets();
 	}
 
-
-	/*IEnumerator FindTargetsWithDelay(float delay) {
-		while (true) {
-			yield return new WaitForSeconds (delay);
-			StartAndStopTargets();
-		}
-	}*/
-
-   /* void FindVisibleTargets() {
-        visibleTargets.Clear();
-		Collider[] targetsInViewRadius = Physics.OverlapSphere (transform.position, viewRadius, enemiesMask);
-
-		for (int i = 0; i < targetsInViewRadius.Length; i++) {
-			Transform target = targetsInViewRadius [i].transform;
-			Vector3 dirToTarget = (target.position - transform.position).normalized;
-			if (Vector3.Angle (transform.forward, dirToTarget) < viewAngle / 2) {
-				float dstToTarget = Vector3.Distance (transform.position, target.position);
-
-				if (!Physics.Raycast (transform.position, dirToTarget, dstToTarget, obstaclesMask)) {
-					EnemyMovement enemy = target.GetComponent<EnemyMovement>();
-					enemy.Hit();
-					visibleTargets.Add (target);
-				}
-			} else
-			{
-				EnemyMovement enemy = target.GetComponent<EnemyMovement>();
-				enemy.UnHit();
-			}
-		}
-    }*/
 
 	void StartAndStopTargets()
     {
@@ -91,15 +60,7 @@ public class FieldOfView : MonoBehaviour
 					enemy.GetComponent<EnemyMovement>().Hit();
 					visibleTargets.Add(enemy);
 				}
-				/*else
-				{
-					enemy.GetComponent<EnemyMovement>().inMove = true;
-				}*/
 			}
-			/*else
-			{
-				enemy.GetComponent<EnemyMovement>().inMove = true;
-			}*/
 		}
 
 	}

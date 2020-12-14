@@ -18,33 +18,22 @@ public class EnemyMovement : MonoBehaviour
     void Awake() {
         gameOverUI.SetActive(false);
     }
-    //private int loop = 0;
 
-    // Start is called before the first frame update
     void Start()
     {
         rb = this.GetComponent<Rigidbody>();
         StartCoroutine(IWantToMove(.2f));
     }
 
-    // Update is called once per frame
+
     void FixedUpdate()
     {
-        if (enemyspeed > defaultSpeed/3){
-        Vector3 pos = Vector3.MoveTowards(transform.position, player.position, enemyspeed * Time.deltaTime);
-        rb.MovePosition(pos);
-        transform.LookAt(player,Vector3.up);
+        if (enemyspeed > defaultSpeed/3) {
+            Vector3 pos = Vector3.MoveTowards(transform.position, player.position, enemyspeed * Time.deltaTime);
+            rb.MovePosition(pos);
+            transform.LookAt(player,Vector3.up);
         }
 
-        //Debug.Log(enemyspeed);
-        
-        //loop = (loop + 1) % 60;
-        //Debug.Log(loop);
-        //if (loop == 0)
-        //{
-        //    inMove = true;
-        //}
-        //inMove = true;
     }
 
     IEnumerator IWantToMove(float delay) {

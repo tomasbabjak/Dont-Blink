@@ -3,11 +3,15 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
+
 
 public class ToNextScene : MonoBehaviour
 {
     public int nextSceneLoad;
-    // Start is called before the first frame update
+
+    public GameObject endScene;
+
     void Start()
     {
         nextSceneLoad = SceneManager.GetActiveScene().buildIndex + 1;
@@ -18,7 +22,13 @@ public class ToNextScene : MonoBehaviour
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
 
+    public void ToMenuScene() {
+        Time.timeScale = 1;
+        SceneManager.LoadScene(0);
+    }
+
     public void LoadNextScene() {
+        Time.timeScale = 1;
         SceneManager.LoadScene(nextSceneLoad);
     }
 
@@ -27,7 +37,9 @@ public class ToNextScene : MonoBehaviour
         if (player.CompareTag("Player"))
         {
             saveState(player);
-            LoadNextScene();
+            Time.timeScale = 0;
+            endScene.SetActive(true);
+            //LoadNextScene();
             //SceneManager.LoadScene(nextSceneLoad);
         }
     }
@@ -41,11 +53,5 @@ public class ToNextScene : MonoBehaviour
             player.GetComponent<EyeItemController>().CurrentEyeSize
         );
         LevelManager.SaveLevelData(playerData);
-        /*
-        LevelManager.speedPowerUps = player.GetComponent<SpeedPowerUpController>().CurrentInventorySize;
-        LevelManager.eys = player.GetComponent<EyeItemController>().CurrentEyeSize;
-        GameObject flashlight = GameObject.FindWithTag("Flashlight");
-        LevelManager.batteries = flashlight.GetComponent<BatteryPowerUpController>().CurrentBatterySize;
-        */
     }
 }

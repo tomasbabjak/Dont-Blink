@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class KeyControl : MonoBehaviour
 {
-    //public DoorControl doorScript;
     public GameObject door;
 
     private void OnTriggerEnter(Collider other)

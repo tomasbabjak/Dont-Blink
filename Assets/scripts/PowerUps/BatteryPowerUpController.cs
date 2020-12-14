@@ -1,15 +1,10 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
-using TMPro;
-using System.Text;
 public class BatteryPowerUpController : MonoBehaviour
 {
 
     public KeyCode reloadBatteryKey = KeyCode.R;
-
-    //[SerializeField] TextMeshProUGUI countText = null;
 
     public int maxBatterySize = 4;
 
@@ -27,7 +22,6 @@ public class BatteryPowerUpController : MonoBehaviour
             {
                 _currentBatterySize = value;
                 onBatteryUpdate?.Invoke(_currentBatterySize, maxBatterySize);
-                //UpdateBatteryGuiCount();
             }
         }
     }
@@ -41,16 +35,13 @@ public class BatteryPowerUpController : MonoBehaviour
     void Awake()
     {
         CurrentBatterySize = LevelManager.GetLevelData().batteries;
-        //CurrentBatterySize = LevelManager;
     }
 
     void Start()
     {
-        //UpdateBatteryGuiCount();
         onBatteryUpdate?.Invoke(_currentBatterySize, maxBatterySize);
     }
 
-    // Update is called once per frame
     void Update()
     {
         if(Input.GetKeyDown(reloadBatteryKey))
@@ -59,7 +50,6 @@ public class BatteryPowerUpController : MonoBehaviour
             {
                 AddBatteryLife(gameObject.GetComponent<Flashlight>());
                 CurrentBatterySize -= 1;
-                //UpdateBatteryGuiCount();
             }
         }
         
@@ -68,16 +58,5 @@ public class BatteryPowerUpController : MonoBehaviour
     public void AddBatteryLife(Flashlight flash)
     {
         flash.batteryLife += batteryPowerUp.addIntensity;
-        //Debug.Log(batteryPowerUp.addIntensity);
     }
-/*
-    void UpdateBatteryGuiCount()
-    {
-        StringBuilder sb = new StringBuilder("Batteries: ");
-        sb.Append(_currentBatterySize);
-        sb.Append(" / ");
-        sb.Append(maxBatterySize);
-
-        countText.text = sb.ToString();
-    }*/
 }

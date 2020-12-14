@@ -11,7 +11,6 @@ public class EyeItemController : MonoBehaviour
     public GameObject eyePrefab;
     public float eyeDuration = 10f;
     public float throwStrength = 500;
-    //[SerializeField] TextMeshProUGUI eyeSizeText = null;
 
     public int maxEyeSize = 4;
 
@@ -28,7 +27,6 @@ public class EyeItemController : MonoBehaviour
             else 
             {
                 _currentEyeSize = value;
-                //updateGUISize();
                 onEyeUpdate?.Invoke(_currentEyeSize);
             }
         }
@@ -48,7 +46,6 @@ public class EyeItemController : MonoBehaviour
     void Start()
     {
         charController = gameObject.GetComponent<CharController>();
-        //updateGUISize();
         onEyeUpdate?.Invoke(_currentEyeSize);
     }
 
@@ -60,24 +57,10 @@ public class EyeItemController : MonoBehaviour
             {
                 ThrowEye();
                 CurrentEyeSize -= 1;
-                //updateGUISize();
-                //onEyeUpdate?.Invoke(_currentEyeSize);
             }
         }
     }
-/*
-    private void updateGUISize()
-    {
-        if (_currentEyeSize > 0)
-        {
-            eyeSizeText.text = _currentEyeSize.ToString();
-        }
-        else
-        {
-            eyeSizeText.text = "";
-        }
-    }
-*/
+
     private void ThrowEye()
     {
         var ey = Instantiate(eyePrefab, transform.position + transform.forward + transform.up + transform.up, Quaternion.identity);

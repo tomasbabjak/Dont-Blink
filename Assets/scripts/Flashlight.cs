@@ -2,9 +2,6 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
-using TMPro;
-using System.Text;
 
 [RequireComponent(typeof(Light))]
 public class Flashlight : MonoBehaviour
@@ -38,9 +35,6 @@ public class Flashlight : MonoBehaviour
     private int fowNoLightDistance = 1;
     private int fowNoLightAngle = 30;
 
-    //[SerializeField] Image stateIcon = null;
-    //[SerializeField] Image healthBar = null;
-
     float getLifePercentage
     {
         get
@@ -66,7 +60,6 @@ public class Flashlight : MonoBehaviour
         flashlight = gameObject.GetComponent<Light>();
         InitializeDefaults();
         ToogleFlashlight(!isActive);
-        //toogleFlashIcon();
     }
 
     void ToogleFlashlight(bool state)
@@ -76,7 +69,6 @@ public class Flashlight : MonoBehaviour
 
         UpdateBatteryLifeProcess();
         onFlashlightUpdate?.Invoke(isActive, getLifePercentage);
-        //toogleFlashIcon();
 
         if (!isActive)
         {
@@ -114,7 +106,6 @@ public class Flashlight : MonoBehaviour
             var newValue = batteryLife - powerUssage * Time.deltaTime;
             batteryLife = Mathf.Clamp(newValue, minBatteryLife, maxBatteryLife);
             flashlight.intensity = getLightIntensity;
-            //updateHealhtBar();
             onFlashlightUpdate?.Invoke(isActive, getLifePercentage);
             yield return null;
         }
@@ -139,24 +130,13 @@ public class Flashlight : MonoBehaviour
 
     }
 
-    // Update is called once per frame
     void Update()
     {
         if(Input.GetKeyDown(flashlightToggleKey))
         {
             ToogleFlashlight(!isActive);
         }
-/*
-        if (isActive)
-        {
-            flashlight.enabled = true;
-            flashlight.intensity -= batteryLife / batteryLifeSecounds * Time.deltaTime;
-        } 
-        else 
-        {
-            flashlight.enabled = false;
-        }
-*/
+
         if (Input.GetKeyDown(changeLightSetting) && isActive)
         {
             changeFlashlight();
@@ -179,21 +159,4 @@ public class Flashlight : MonoBehaviour
         flashlight.range = distance;
 
     }
-/*
-    private void updateHealhtBar()
-    {
-        healthBar.fillAmount = getLifePercentage;
-    }
-
-    private void toogleFlashIcon(){
-
-        if (isActive)
-        {
-            stateIcon.color = Color.yellow;
-        }
-        else
-        {
-            stateIcon.color = Color.black;
-        }
-    }*/
 }

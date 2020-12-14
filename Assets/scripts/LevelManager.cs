@@ -11,9 +11,6 @@ public class LevelManager : MonoBehaviour
 {
 
     public static Dictionary<int,PlayerData> levelData;
-    //public static int batteries = 0;
-    //public static int speedPowerUps = 0;
-    //public static int eys = 0;
 
     void Awake()
     {
@@ -37,9 +34,9 @@ public class LevelManager : MonoBehaviour
 
         } else
         {
-                    levelData.Add(SceneManager.GetActiveScene().buildIndex + 1, playerData);
+            levelData.Add(SceneManager.GetActiveScene().buildIndex + 1, playerData);
         }
-        //levelData.Add(SceneManager.GetActiveScene().buildIndex + 1, playerData);
+
         SaveSystem.SaveData(levelData);
         Debug.Log("savedas");
         Debug.Log(SceneManager.GetActiveScene().buildIndex + 1);

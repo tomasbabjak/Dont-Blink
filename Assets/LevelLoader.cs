@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
-using TMPro;
 
 public class LevelLoader : MonoBehaviour
 {
@@ -13,7 +12,6 @@ public class LevelLoader : MonoBehaviour
 
     public Button[] levels;
 
-    //private bool showingLevels = false;
 
     public void ShowLevels () {
         playButton.SetActive(false);
@@ -29,7 +27,6 @@ public class LevelLoader : MonoBehaviour
 
     public void Start()
     {
-        //Debug.Log(LevelManager.levelData.Count);
         for (int i = 0; i < LevelManager.levelData.Count && i<levels.Length; i++) 
         {
             levels[i].interactable = true;

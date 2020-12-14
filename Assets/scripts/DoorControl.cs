@@ -17,11 +17,7 @@ public class DoorControl : MonoBehaviour
                 transform.rotation = newRot;
                 transform.Translate(-0.6f, 0, 0.6f);
                 gameObject.GetComponent<BoxCollider>().isTrigger = false;
-                /*foreach (Transform child in transform)
-                {
-                    Debug.Log(child);
-                    child.GetComponent<BoxCollider>().isTrigger = false;
-                }*/
+
             }
         }
     }

@@ -11,12 +11,13 @@ public class SpeedPowerUpController : MonoBehaviour
 
     public SpeedPowerUp speedPowerUp = null;
 
-    [SerializeField] Image stateIcon = null;
-    [SerializeField] TextMeshProUGUI powerUpsSizeText = null;
+    //[SerializeField] Image stateIcon = null;
+    //[SerializeField] TextMeshProUGUI powerUpsSizeText = null;
 
     CharController charController = null;
 
     public int maxInventorySize = 2;
+    private bool isActivated = false;
 
     private int _currentInventorySize = 0;
     public int CurrentInventorySize
@@ -31,10 +32,14 @@ public class SpeedPowerUpController : MonoBehaviour
             else
             {
                 _currentInventorySize = value;
-                updateGUISize();
+                onSpeedPoweUpUpdate?.Invoke(isActivated,_currentInventorySize);
+                //updateGUISize();
             }
         }
     }
+
+    public event SpeedPUDelegate onSpeedPoweUpUpdate;
+    public delegate void SpeedPUDelegate(bool isActive, int size);
 
     void Awake()
     {
@@ -45,8 +50,9 @@ public class SpeedPowerUpController : MonoBehaviour
     void Start()
     {
         charController = gameObject.GetComponent<CharController>();
-        updateGUISize();
-        tooglePowerUpUssageIcon(false);
+        //updateGUISize();
+        //tooglePowerUpUssageIcon(false);
+        onSpeedPoweUpUpdate?.Invoke(false,_currentInventorySize);
     }
 
     // Update is called once per frame
@@ -56,10 +62,11 @@ public class SpeedPowerUpController : MonoBehaviour
         {
             if (_currentInventorySize > 0)
             {
-                tooglePowerUpUssageIcon(true);
+                isActivated = true;
                 StartCoroutine(ApplySpeedKeyPowerUp());
                 _currentInventorySize -= 1;
-                updateGUISize();
+                //updateGUISize();
+                onSpeedPoweUpUpdate?.Invoke(isActivated,_currentInventorySize);
             }
         }
     }
@@ -69,10 +76,12 @@ public class SpeedPowerUpController : MonoBehaviour
         charController.movespeed = speedPowerUp.moveSpeed;
         yield return new WaitForSeconds(speedPowerUp.durationInSec);
         charController.movespeed = charController.defaultSpeed;
-        tooglePowerUpUssageIcon(false);
+        //tooglePowerUpUssageIcon(false);
+        isActivated = false;
+        onSpeedPoweUpUpdate?.Invoke(isActivated,_currentInventorySize);
         //Destroy(gameObject);
     }
-
+/*
     private void updateGUISize()
     {
         if (_currentInventorySize > 0)
@@ -95,5 +104,5 @@ public class SpeedPowerUpController : MonoBehaviour
         {
             stateIcon.color = Color.black;
         }
-    }
+    }*/
 }

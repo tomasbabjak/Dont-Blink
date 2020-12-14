@@ -332,24 +332,17 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 48e688b684f96c49ca515393a7785da5, type: 3}
---- !u!1 &181822371 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 5916081050515119684, guid: ab07c341324036a0a8dec4f06e4efa25, type: 3}
+--- !u!114 &181822372 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 181822372, guid: ab07c341324036a0a8dec4f06e4efa25, type: 3}
   m_PrefabInstance: {fileID: 862038627}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &181822372
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 181822371}
+  m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ee78da72939ba4b439d03c946a52429a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  nextSceneLoad: 0
 --- !u!1 &221686423
 GameObject:
   m_ObjectHideFlags: 0
@@ -1190,27 +1183,27 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 95468308, guid: ab07c341324036a0a8dec4f06e4efa25, type: 3}
-      propertyPath: stateIcon
-      value: 
-      objectReference: {fileID: 1818625891}
-    - target: {fileID: 95468308, guid: ab07c341324036a0a8dec4f06e4efa25, type: 3}
-      propertyPath: powerUpsSizeText
-      value: 
-      objectReference: {fileID: 1602563679}
-    - target: {fileID: 95468309, guid: ab07c341324036a0a8dec4f06e4efa25, type: 3}
+    - target: {fileID: 181822373, guid: ab07c341324036a0a8dec4f06e4efa25, type: 3}
       propertyPath: eyeSizeText
       value: 
       objectReference: {fileID: 6814185361893473013}
-    - target: {fileID: 265898025, guid: ab07c341324036a0a8dec4f06e4efa25, type: 3}
+    - target: {fileID: 862038629, guid: ab07c341324036a0a8dec4f06e4efa25, type: 3}
+      propertyPath: stateIcon
+      value: 
+      objectReference: {fileID: 1818625891}
+    - target: {fileID: 862038629, guid: ab07c341324036a0a8dec4f06e4efa25, type: 3}
+      propertyPath: powerUpsSizeText
+      value: 
+      objectReference: {fileID: 1602563679}
+    - target: {fileID: 4465570770204845139, guid: ab07c341324036a0a8dec4f06e4efa25, type: 3}
       propertyPath: countText
       value: 
       objectReference: {fileID: 374773010}
-    - target: {fileID: 265898027, guid: ab07c341324036a0a8dec4f06e4efa25, type: 3}
+    - target: {fileID: 4465570770204845139, guid: ab07c341324036a0a8dec4f06e4efa25, type: 3}
       propertyPath: healthBar
       value: 
       objectReference: {fileID: 1646699915}
-    - target: {fileID: 265898027, guid: ab07c341324036a0a8dec4f06e4efa25, type: 3}
+    - target: {fileID: 4465570770204845139, guid: ab07c341324036a0a8dec4f06e4efa25, type: 3}
       propertyPath: stateIcon
       value: 
       objectReference: {fileID: 1323907475}
@@ -1262,22 +1255,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 6835142138110725346, guid: ab07c341324036a0a8dec4f06e4efa25, type: 3}
-      propertyPath: enemiesMask.m_Bits
-      value: 8192
-      objectReference: {fileID: 0}
-    - target: {fileID: 6835142138110725346, guid: ab07c341324036a0a8dec4f06e4efa25, type: 3}
-      propertyPath: mirrorsMask.m_Bits
-      value: 16384
-      objectReference: {fileID: 0}
-    - target: {fileID: 6835142138110725346, guid: ab07c341324036a0a8dec4f06e4efa25, type: 3}
-      propertyPath: obstaclesMask.m_Bits
-      value: 4096
-      objectReference: {fileID: 0}
-    - target: {fileID: 6835142138110725356, guid: ab07c341324036a0a8dec4f06e4efa25, type: 3}
-      propertyPath: ui
-      value: 
-      objectReference: {fileID: 698913748}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ab07c341324036a0a8dec4f06e4efa25, type: 3}
 --- !u!1001 &896219964

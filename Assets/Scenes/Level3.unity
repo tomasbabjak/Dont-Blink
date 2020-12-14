@@ -1429,6 +1429,10 @@ PrefabInstance:
       propertyPath: eyeSizeText
       value: 
       objectReference: {fileID: 130772650}
+    - target: {fileID: 181822373, guid: ab07c341324036a0a8dec4f06e4efa25, type: 3}
+      propertyPath: eyeSizeText
+      value: 
+      objectReference: {fileID: 130772650}
     - target: {fileID: 265898025, guid: ab07c341324036a0a8dec4f06e4efa25, type: 3}
       propertyPath: countText
       value: 
@@ -1438,6 +1442,26 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1646699915}
     - target: {fileID: 265898027, guid: ab07c341324036a0a8dec4f06e4efa25, type: 3}
+      propertyPath: stateIcon
+      value: 
+      objectReference: {fileID: 1323907475}
+    - target: {fileID: 862038629, guid: ab07c341324036a0a8dec4f06e4efa25, type: 3}
+      propertyPath: stateIcon
+      value: 
+      objectReference: {fileID: 1818625891}
+    - target: {fileID: 862038629, guid: ab07c341324036a0a8dec4f06e4efa25, type: 3}
+      propertyPath: powerUpsSizeText
+      value: 
+      objectReference: {fileID: 1602563679}
+    - target: {fileID: 4465570770204845139, guid: ab07c341324036a0a8dec4f06e4efa25, type: 3}
+      propertyPath: countText
+      value: 
+      objectReference: {fileID: 374773010}
+    - target: {fileID: 4465570770204845139, guid: ab07c341324036a0a8dec4f06e4efa25, type: 3}
+      propertyPath: healthBar
+      value: 
+      objectReference: {fileID: 1646699915}
+    - target: {fileID: 4465570770204845139, guid: ab07c341324036a0a8dec4f06e4efa25, type: 3}
       propertyPath: stateIcon
       value: 
       objectReference: {fileID: 1323907475}

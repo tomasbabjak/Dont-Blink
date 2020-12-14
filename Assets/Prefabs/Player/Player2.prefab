@@ -1121,6 +1121,7 @@ GameObject:
   - component: {fileID: 132474205885393271}
   - component: {fileID: 265898025}
   - component: {fileID: 265898027}
+  - component: {fileID: 4465570770204845139}
   m_Layer: 8
   m_Name: Light
   m_TagString: Flashlight
@@ -1216,7 +1217,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   reloadBatteryKey: 114
-  countText: {fileID: 0}
   maxBatterySize: 4
   batteryPowerUp: {fileID: 11400000, guid: 15ef3a71d2f7578948bcce904c4f699d, type: 2}
 --- !u!114 &265898027
@@ -1237,6 +1237,19 @@ MonoBehaviour:
   changeLightSetting: 101
   flashlights: {fileID: 11400000, guid: 0f07bac706ec7fdc987f22da37b37015, type: 2}
   flashlight: {fileID: 0}
+--- !u!114 &4465570770204845139
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5272960865858506365}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b8ba7ebc763e2da6492874b746d76518, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  countText: {fileID: 0}
   stateIcon: {fileID: 0}
   healthBar: {fileID: 0}
 --- !u!1 &5431941904331853742
@@ -1651,6 +1664,9 @@ GameObject:
   - component: {fileID: 6835142138110725346}
   - component: {fileID: 95468308}
   - component: {fileID: 95468309}
+  - component: {fileID: 181822372}
+  - component: {fileID: 181822373}
+  - component: {fileID: 862038629}
   m_Layer: 8
   m_Name: Player2
   m_TagString: Player
@@ -1784,13 +1800,13 @@ MonoBehaviour:
   viewAngle: 42
   enemiesMask:
     serializedVersion: 2
-    m_Bits: 512
+    m_Bits: 8192
   obstaclesMask:
     serializedVersion: 2
-    m_Bits: 256
+    m_Bits: 4096
   mirrorsMask:
     serializedVersion: 2
-    m_Bits: 1024
+    m_Bits: 16384
   visibleTargets: []
   allEnemies: []
 --- !u!114 &95468308
@@ -1807,8 +1823,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   applySpeedKey: 113
   speedPowerUp: {fileID: 11400000, guid: 9461adb894d0d27748fd288be9ced44a, type: 2}
-  stateIcon: {fileID: 0}
-  powerUpsSizeText: {fileID: 0}
   maxInventorySize: 2
 --- !u!114 &95468309
 MonoBehaviour:
@@ -1827,6 +1841,46 @@ MonoBehaviour:
   throwStrength: 500
   maxEyeSize: 4
   charController: {fileID: 0}
+--- !u!114 &181822372
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5916081050515119684}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ee78da72939ba4b439d03c946a52429a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  nextSceneLoad: 0
+--- !u!114 &181822373
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5916081050515119684}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3fc9f9313587696aaa17a991cf4e4c36, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  eyeSizeText: {fileID: 0}
+--- !u!114 &862038629
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5916081050515119684}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7fd7924812ae1a7b1bf33030d2b79af6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  stateIcon: {fileID: 0}
+  powerUpsSizeText: {fileID: 0}
 --- !u!1 &6258095857250486428
 GameObject:
   m_ObjectHideFlags: 0

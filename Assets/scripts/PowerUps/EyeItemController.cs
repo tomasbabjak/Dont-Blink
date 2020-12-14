@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
@@ -10,7 +11,7 @@ public class EyeItemController : MonoBehaviour
     public GameObject eyePrefab;
     public float eyeDuration = 10f;
     public float throwStrength = 500;
-    [SerializeField] TextMeshProUGUI eyeSizeText = null;
+    //[SerializeField] TextMeshProUGUI eyeSizeText = null;
 
     public int maxEyeSize = 4;
 
@@ -27,23 +28,28 @@ public class EyeItemController : MonoBehaviour
             else 
             {
                 _currentEyeSize = value;
-                updateGUISize();
+                //updateGUISize();
+                onEyeUpdate?.Invoke(_currentEyeSize);
             }
         }
     }
+
+    public event EyeDelegate onEyeUpdate;
+    public delegate void EyeDelegate(int size);
+
 
     public CharController charController;
 
     void Awake()
     {
         CurrentEyeSize = LevelManager.GetLevelData().eys;
-        //CurrentEyeSize = LevelManager.eys;
     }
 
     void Start()
     {
         charController = gameObject.GetComponent<CharController>();
-        updateGUISize();
+        //updateGUISize();
+        onEyeUpdate?.Invoke(_currentEyeSize);
     }
 
     void Update()
@@ -53,12 +59,13 @@ public class EyeItemController : MonoBehaviour
             if (_currentEyeSize > 0)
             {
                 ThrowEye();
-                _currentEyeSize -= 1;
-                updateGUISize();
+                CurrentEyeSize -= 1;
+                //updateGUISize();
+                //onEyeUpdate?.Invoke(_currentEyeSize);
             }
         }
     }
-
+/*
     private void updateGUISize()
     {
         if (_currentEyeSize > 0)
@@ -70,12 +77,12 @@ public class EyeItemController : MonoBehaviour
             eyeSizeText.text = "";
         }
     }
-
+*/
     private void ThrowEye()
     {
         var ey = Instantiate(eyePrefab, transform.position + transform.forward + transform.up + transform.up, Quaternion.identity);
         var rb = ey.GetComponent<Rigidbody>();
         rb.AddForce(transform.forward * throwStrength);
-        Object.Destroy(ey, eyeDuration);
+        Destroy(ey, eyeDuration);
     }
 }

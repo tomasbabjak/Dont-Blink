@@ -38,14 +38,8 @@ public class Flashlight : MonoBehaviour
     private int fowNoLightDistance = 1;
     private int fowNoLightAngle = 30;
 
-    [SerializeField] Image stateIcon = null;
-    //[SerializeField] Slider batLifeSlider = null;
-    [SerializeField] Image healthBar = null;
-    //[SerializeField] TextMeshProUGUI countText = null;
-    //[SerializeField] CanvasGroup holder = null;
-
-    //[SerializeField] Color fullColor = Color.green;
-    //[SerializeField] Color outCollor = Color.red;
+    //[SerializeField] Image stateIcon = null;
+    //[SerializeField] Image healthBar = null;
 
     float getLifePercentage
     {
@@ -62,6 +56,9 @@ public class Flashlight : MonoBehaviour
         }
     }
 
+    public event FlashlightDelegate onFlashlightUpdate;
+    public delegate void FlashlightDelegate(bool isOn, float intensity);
+
 
     void Start()
     {
@@ -69,7 +66,7 @@ public class Flashlight : MonoBehaviour
         flashlight = gameObject.GetComponent<Light>();
         InitializeDefaults();
         ToogleFlashlight(!isActive);
-        toogleFlashIcon();
+        //toogleFlashIcon();
     }
 
     void ToogleFlashlight(bool state)
@@ -78,7 +75,8 @@ public class Flashlight : MonoBehaviour
         flashlight.enabled = state;
 
         UpdateBatteryLifeProcess();
-        toogleFlashIcon();
+        onFlashlightUpdate?.Invoke(isActive, getLifePercentage);
+        //toogleFlashIcon();
 
         if (!isActive)
         {
@@ -116,7 +114,8 @@ public class Flashlight : MonoBehaviour
             var newValue = batteryLife - powerUssage * Time.deltaTime;
             batteryLife = Mathf.Clamp(newValue, minBatteryLife, maxBatteryLife);
             flashlight.intensity = getLightIntensity;
-            updateHealhtBar();
+            //updateHealhtBar();
+            onFlashlightUpdate?.Invoke(isActive, getLifePercentage);
             yield return null;
         }
         outOfBattery = true;
@@ -180,7 +179,7 @@ public class Flashlight : MonoBehaviour
         flashlight.range = distance;
 
     }
-
+/*
     private void updateHealhtBar()
     {
         healthBar.fillAmount = getLifePercentage;
@@ -196,5 +195,5 @@ public class Flashlight : MonoBehaviour
         {
             stateIcon.color = Color.black;
         }
-    }
+    }*/
 }

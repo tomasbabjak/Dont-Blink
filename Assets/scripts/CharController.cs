@@ -14,15 +14,7 @@ public class CharController : MonoBehaviour
 
     Rigidbody rb;
     animationStateController animationController;
-    //public GameObject ui;
 
-    void Awake()
-    {
-        //DontDestroyOnLoad(gameObject);
-        //DontDestroyOnLoad(ui);
-    }
-
-    // Start is called before the first frame update
     void Start()
     {
         movespeed = defaultSpeed;
@@ -32,8 +24,6 @@ public class CharController : MonoBehaviour
         forward = Vector3.Normalize(forward);
         right = Quaternion.Euler(new Vector3(0,90,0)) * forward;
         animationController = gameObject.GetComponent<animationStateController>();
-
-        //inventory = new Dictionary<string, int>();
         
     }
 

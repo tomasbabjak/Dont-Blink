@@ -9,7 +9,7 @@ public class BatteryPowerUpController : MonoBehaviour
 
     public KeyCode reloadBatteryKey = KeyCode.R;
 
-    [SerializeField] TextMeshProUGUI countText = null;
+    //[SerializeField] TextMeshProUGUI countText = null;
 
     public int maxBatterySize = 4;
 
@@ -26,10 +26,15 @@ public class BatteryPowerUpController : MonoBehaviour
             else 
             {
                 _currentBatterySize = value;
-                UpdateBatteryGuiCount();
+                onBatteryUpdate?.Invoke(_currentBatterySize, maxBatterySize);
+                //UpdateBatteryGuiCount();
             }
         }
     }
+
+
+    public event BatteryDelegate onBatteryUpdate;
+    public delegate void BatteryDelegate(int currentsize, int maxsize);
 
     public BatteryPowerUp batteryPowerUp = null;
 
@@ -41,7 +46,8 @@ public class BatteryPowerUpController : MonoBehaviour
 
     void Start()
     {
-        UpdateBatteryGuiCount();
+        //UpdateBatteryGuiCount();
+        onBatteryUpdate?.Invoke(_currentBatterySize, maxBatterySize);
     }
 
     // Update is called once per frame
@@ -52,8 +58,8 @@ public class BatteryPowerUpController : MonoBehaviour
             if (_currentBatterySize > 0)
             {
                 AddBatteryLife(gameObject.GetComponent<Flashlight>());
-                _currentBatterySize -= 1;
-                UpdateBatteryGuiCount();
+                CurrentBatterySize -= 1;
+                //UpdateBatteryGuiCount();
             }
         }
         
@@ -62,9 +68,9 @@ public class BatteryPowerUpController : MonoBehaviour
     public void AddBatteryLife(Flashlight flash)
     {
         flash.batteryLife += batteryPowerUp.addIntensity;
-        Debug.Log(batteryPowerUp.addIntensity);
+        //Debug.Log(batteryPowerUp.addIntensity);
     }
-
+/*
     void UpdateBatteryGuiCount()
     {
         StringBuilder sb = new StringBuilder("Batteries: ");
@@ -73,5 +79,5 @@ public class BatteryPowerUpController : MonoBehaviour
         sb.Append(maxBatterySize);
 
         countText.text = sb.ToString();
-    }
+    }*/
 }

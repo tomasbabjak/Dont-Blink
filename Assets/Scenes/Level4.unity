@@ -5541,6 +5541,10 @@ PrefabInstance:
       propertyPath: endScene
       value: 
       objectReference: {fileID: 136254185}
+    - target: {fileID: 4932582564991469262, guid: ca5c83ab39caa1981864cc5d903ea262, type: 3}
+      propertyPath: doorPosition
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7256234462251357205, guid: ca5c83ab39caa1981864cc5d903ea262, type: 3}
       propertyPath: m_RootOrder
       value: 13

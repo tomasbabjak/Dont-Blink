@@ -146,6 +146,7 @@ public class Flashlight : MonoBehaviour
 
     private void changeFlashlight()
     {
+        ToogleFlashlight(false);
         FlashlightType newFlashlight = flashlights.GetNextFlashlightType();
         
         distance = newFlashlight.distance;
@@ -157,6 +158,8 @@ public class Flashlight : MonoBehaviour
 
         flashlight.spotAngle = angle;
         flashlight.range = distance;
+
+        ToogleFlashlight(true);
 
     }
 }

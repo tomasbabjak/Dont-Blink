@@ -11,29 +11,45 @@ public class FlashlightAction : MonoBehaviour
 {
     BatteryPowerUpController batteryPowerUpController;
     Flashlight flashlight;
+
+    private bool _flashlightStatus = true;
+    public bool FlashlightStatus
+    {
+        get {return _flashlightStatus ;}
+        set
+        {
+            if ( value ==_flashlightStatus )
+            {
+                return;
+            }
+            else 
+            {
+                _flashlightStatus = value;
+                flashlightSwitch.Play();
+            }
+        }
+    }
+
     [SerializeField] TextMeshProUGUI countText = null;
     [SerializeField] Image stateIcon = null;
     [SerializeField] Image healthBar = null;
+
+    AudioSource flashlightSwitch;
 
 
     void Start()
     {
         batteryPowerUpController = GetComponent<BatteryPowerUpController>();
         flashlight = GetComponent<Flashlight>();
+        flashlightSwitch = flashlight.GetComponent<AudioSource>();
         batteryPowerUpController.onBatteryUpdate += UpdateBatteryGuiCount;
         flashlight.onFlashlightUpdate += UpdateFlashlightGui;
     }
 
     private void UpdateFlashlightGui(bool isOn, float intensity)
     {
-        if (isOn)
-        {
-            stateIcon.color = Color.yellow;
-        }
-        else
-        {
-            stateIcon.color = Color.black;
-        }
+        FlashlightStatus = isOn;
+        stateIcon.color = isOn ? Color.yellow : Color.black;
         healthBar.fillAmount = intensity;
     }
 

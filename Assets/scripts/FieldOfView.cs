@@ -92,7 +92,8 @@ public class FieldOfView : MonoBehaviour
 				
 				Vector3 anglePosition = reflectPosition;
 				float flyPosition = getTriangleH(2,viewAngle);
-				anglePosition.z += -flyPosition;
+				anglePosition += (-mirror.forward * flyPosition);
+				//anglePosition.z += -flyPosition;
 
 				Vector3 viewAngleA = DirFromAngle (-viewAngle / 2, false, mirror);
 				Vector3 viewAngleB = DirFromAngle (viewAngle / 2, false, mirror);

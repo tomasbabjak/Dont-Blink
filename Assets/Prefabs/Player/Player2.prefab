@@ -1217,7 +1217,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 74dc05c12a94a2b2f85809291656fb65, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  reloadBatteryKey: 114
   maxBatterySize: 4
   batteryPowerUp: {fileID: 11400000, guid: 15ef3a71d2f7578948bcce904c4f699d, type: 2}
 --- !u!114 &265898027
@@ -1234,8 +1233,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   autoReduce: 1
   batteryLife: 100
-  flashlightToggleKey: 108
-  changeLightSetting: 101
   flashlights: {fileID: 11400000, guid: 0f07bac706ec7fdc987f22da37b37015, type: 2}
   flashlight: {fileID: 0}
 --- !u!114 &4465570770204845139
@@ -1764,7 +1761,6 @@ GameObject:
   - component: {fileID: 181822372}
   - component: {fileID: 181822373}
   - component: {fileID: 862038629}
-  - component: {fileID: 3635856729302071680}
   - component: {fileID: 181822374}
   m_Layer: 8
   m_Name: Player2
@@ -1918,7 +1914,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0d10d063785fb2719bd3ed760a544725, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  applySpeedKey: 113
   speedPowerUp: {fileID: 11400000, guid: 9461adb894d0d27748fd288be9ced44a, type: 2}
   maxInventorySize: 2
 --- !u!114 &95468309
@@ -1979,20 +1974,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   stateIcon: {fileID: 0}
   powerUpsSizeText: {fileID: 0}
---- !u!114 &3635856729302071680
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5916081050515119684}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ee78da72939ba4b439d03c946a52429a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  nextSceneLoad: 0
-  endScene: {fileID: 0}
 --- !u!114 &181822374
 MonoBehaviour:
   m_ObjectHideFlags: 0

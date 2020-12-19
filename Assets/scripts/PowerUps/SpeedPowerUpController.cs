@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class SpeedPowerUpController : MonoBehaviour
 {
-    public KeyCode applySpeedKey = KeyCode.Q;
 
     public SpeedPowerUp speedPowerUp = null;
 
@@ -50,7 +49,7 @@ public class SpeedPowerUpController : MonoBehaviour
 
     void Update()
     {
-        if(Input.GetKeyDown(applySpeedKey))
+        if(Input.GetButtonDown("SpeedPowerUp"))
         {
             if (_currentInventorySize > 0)
             {

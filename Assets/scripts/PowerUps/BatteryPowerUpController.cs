@@ -4,8 +4,6 @@ using UnityEngine;
 public class BatteryPowerUpController : MonoBehaviour
 {
 
-    public KeyCode reloadBatteryKey = KeyCode.R;
-
     public int maxBatterySize = 4;
 
     private int _currentBatterySize = 0;
@@ -44,7 +42,7 @@ public class BatteryPowerUpController : MonoBehaviour
 
     void Update()
     {
-        if(Input.GetKeyDown(reloadBatteryKey))
+        if(Input.GetButtonDown("ReloadFlashlight"))
         {
             if (_currentBatterySize > 0)
             {

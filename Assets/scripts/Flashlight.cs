@@ -20,9 +20,6 @@ public class Flashlight : MonoBehaviour
 
     private float defaultIntensity = 100f;
 
-    public KeyCode flashlightToggleKey = KeyCode.L;
-    public KeyCode changeLightSetting = KeyCode.E;
-
     private IEnumerator IE_UpdateBatteryLife = null;
 
     public FlashlightTypePool flashlights;
@@ -132,12 +129,12 @@ public class Flashlight : MonoBehaviour
 
     void Update()
     {
-        if(Input.GetKeyDown(flashlightToggleKey))
+        if(Input.GetButtonDown("ToogleLight"))
         {
             ToogleFlashlight(!isActive);
         }
 
-        if (Input.GetKeyDown(changeLightSetting) && isActive)
+        if (Input.GetButtonDown("ChangeLightType") && isActive)
         {
             changeFlashlight();
         }

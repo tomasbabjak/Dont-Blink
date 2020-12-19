@@ -54,7 +54,7 @@ public class EyeItemController : MonoBehaviour
 
     void Update()
     {
-        if (Input.GetMouseButtonDown(0))
+        if (Input.GetButtonDown("ThrowEye"))
         {
             if (_currentEyeSize > 0)
             {

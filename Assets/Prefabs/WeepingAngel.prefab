@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 8984709447308002527}
   - component: {fileID: 1665884729880776548}
   - component: {fileID: 109997557894599692}
+  - component: {fileID: 3079431027845280149}
   m_Layer: 13
   m_Name: WeepingAngel
   m_TagString: Untagged
@@ -96,6 +97,18 @@ CapsuleCollider:
   m_Height: 3.5
   m_Direction: 1
   m_Center: {x: 0, y: 1, z: 0.15}
+--- !u!114 &3079431027845280149
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7257321625237569466}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 578d1e2d5bb596e229d665b4328976bf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &4826880728107824212
 PrefabInstance:
   m_ObjectHideFlags: 0

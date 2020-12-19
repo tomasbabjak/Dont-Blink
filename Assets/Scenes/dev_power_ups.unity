@@ -3151,6 +3151,10 @@ PrefabInstance:
       propertyPath: gameOverUI
       value: 
       objectReference: {fileID: 1588467578}
+    - target: {fileID: 3079431027845280149, guid: 41a6189719f6ee6e1822ec6477cf2f2d, type: 3}
+      propertyPath: gameOverUI
+      value: 
+      objectReference: {fileID: 1588467578}
     - target: {fileID: 5637925792433735941, guid: 41a6189719f6ee6e1822ec6477cf2f2d, type: 3}
       propertyPath: m_Layer
       value: 0
@@ -3577,6 +3581,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 95468307}
     - target: {fileID: 1665884729880776548, guid: 41a6189719f6ee6e1822ec6477cf2f2d, type: 3}
+      propertyPath: gameOverUI
+      value: 
+      objectReference: {fileID: 1588467578}
+    - target: {fileID: 3079431027845280149, guid: 41a6189719f6ee6e1822ec6477cf2f2d, type: 3}
       propertyPath: gameOverUI
       value: 
       objectReference: {fileID: 1588467578}

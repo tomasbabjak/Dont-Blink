@@ -32,6 +32,9 @@ public class EyeItemController : MonoBehaviour
         }
     }
 
+    public event EyeThrowDelegate onEyeThrow;
+    public delegate void EyeThrowDelegate();
+
     public event EyeDelegate onEyeUpdate;
     public delegate void EyeDelegate(int size);
 
@@ -66,6 +69,7 @@ public class EyeItemController : MonoBehaviour
         var ey = Instantiate(eyePrefab, transform.position + transform.forward + transform.up + transform.up, Quaternion.identity);
         var rb = ey.GetComponent<Rigidbody>();
         rb.AddForce(transform.forward * throwStrength);
+        onEyeThrow?.Invoke();
         Destroy(ey, eyeDuration);
     }
 }

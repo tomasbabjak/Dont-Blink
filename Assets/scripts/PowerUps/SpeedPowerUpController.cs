@@ -34,6 +34,9 @@ public class SpeedPowerUpController : MonoBehaviour
     public event SpeedPUDelegate onSpeedPoweUpUpdate;
     public delegate void SpeedPUDelegate(bool isActive, int size);
 
+    public event UsingDrinkDelegate onDrinkUse;
+    public delegate void UsingDrinkDelegate();
+
     void Awake()
     {
         CurrentInventorySize = LevelManager.GetLevelData().speedPowerUps;
@@ -52,6 +55,7 @@ public class SpeedPowerUpController : MonoBehaviour
             if (_currentInventorySize > 0)
             {
                 isActivated = true;
+                onDrinkUse?.Invoke();
                 StartCoroutine(ApplySpeedKeyPowerUp());
                 CurrentInventorySize -= 1;
                 //onSpeedPoweUpUpdate?.Invoke(isActivated,_currentInventorySize);

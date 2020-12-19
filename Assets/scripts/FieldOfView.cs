@@ -57,7 +57,7 @@ public class FieldOfView : MonoBehaviour
 				if ((Vector3.Angle(transform.forward, dirToTarget) < viewAngle / 2 && !Physics.Raycast(transform.position, dirToTarget, dstToTarget, obstaclesMask)) 
 				|| mirrorReflection(mirrorsInViewRadius, enemy))
 				{
-					enemy.GetComponent<EnemyMovement>().Hit();
+					enemy.GetComponent<EnemyController>().Hit();
 					visibleTargets.Add(enemy);
 				}
 			}

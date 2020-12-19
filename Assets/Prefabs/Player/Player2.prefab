@@ -1667,6 +1667,8 @@ GameObject:
   - component: {fileID: 181822372}
   - component: {fileID: 181822373}
   - component: {fileID: 862038629}
+  - component: {fileID: 3635856729302071680}
+  - component: {fileID: 181822374}
   m_Layer: 8
   m_Name: Player2
   m_TagString: Player
@@ -1755,8 +1757,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7bd36b6ad6bce71fdb0f4379f729120b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  acceleration: 0.1
-  deacceleration: 0.5
 --- !u!114 &6835142138110725356
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1854,6 +1854,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   nextSceneLoad: 0
+  endScene: {fileID: 0}
 --- !u!114 &181822373
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1881,6 +1882,35 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   stateIcon: {fileID: 0}
   powerUpsSizeText: {fileID: 0}
+--- !u!114 &3635856729302071680
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5916081050515119684}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ee78da72939ba4b439d03c946a52429a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  nextSceneLoad: 0
+  endScene: {fileID: 0}
+--- !u!114 &181822374
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5916081050515119684}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 933d2359e0153ca9cb5866b694102e45, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  footstep: {fileID: 8300000, guid: ba16e14e7ef305b459c9e932d31a31fa, type: 3}
+  throwItem: {fileID: 8300000, guid: 404cb47a9c851089c8e3d2dd89b824d5, type: 3}
+  openCan: {fileID: 8300000, guid: d58588f7453b03ee3a9247f8ffebb66f, type: 3}
 --- !u!1 &6258095857250486428
 GameObject:
   m_ObjectHideFlags: 0

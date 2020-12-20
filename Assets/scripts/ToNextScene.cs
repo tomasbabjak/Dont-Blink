@@ -48,7 +48,7 @@ public class ToNextScene : MonoBehaviour
     {
         GameObject flashlight = GameObject.FindWithTag("Flashlight");
         PlayerData playerData = new PlayerData(
-            flashlight.GetComponent<BatteryPowerUpController>().CurrentBatterySize,
+            flashlight ? flashlight.GetComponent<BatteryPowerUpController>().CurrentBatterySize : 0,
             player.GetComponent<SpeedPowerUpController>().CurrentInventorySize,
             player.GetComponent<EyeItemController>().CurrentEyeSize
         );

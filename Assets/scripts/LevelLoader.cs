@@ -10,17 +10,19 @@ public class LevelLoader : MonoBehaviour
     public GameObject playButton;
     public GameObject levelsButton;
     public GameObject introButton;
+    public GameObject quitButton;
     public GameObject introductionScreen;
     public GameObject titleText;
 
     public Button[] levels;
 
-    
+
     public void ShowLevels () {
         playButton.SetActive(false);
         levelsButton.SetActive(false);
         levelsScreen.SetActive(true);
         introButton.SetActive(false);
+        quitButton.SetActive(false);
     }
 
     public void HideLevels () {
@@ -28,6 +30,7 @@ public class LevelLoader : MonoBehaviour
         levelsButton.SetActive(true);
         levelsScreen.SetActive(false);
         introButton.SetActive(true);
+        quitButton.SetActive(true);
     }
 
     public void ShowIntroduction() {
@@ -36,6 +39,7 @@ public class LevelLoader : MonoBehaviour
         introButton.SetActive(false);
         titleText.SetActive(false);
         introductionScreen.SetActive(true);
+        quitButton.SetActive(false);
     }
 
     public void HideIntroduction() {
@@ -43,7 +47,17 @@ public class LevelLoader : MonoBehaviour
         levelsButton.SetActive(true);
         introButton.SetActive(true);
         titleText.SetActive(true);
+        quitButton.SetActive(true);
         introductionScreen.SetActive(false);
+    }
+
+    public void QuitGame()
+    {
+        #if UNITY_EDITOR
+            UnityEditor.EditorApplication.isPlaying = false;
+        #else
+            Application.Quit ();
+        #endif
     }
 
     public void Start()

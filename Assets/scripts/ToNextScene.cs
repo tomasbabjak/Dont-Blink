@@ -32,6 +32,11 @@ public class ToNextScene : MonoBehaviour
         SceneManager.LoadScene(nextSceneLoad);
     }
 
+    public void QuitGame()
+    {
+        Application.Quit();
+    }
+
     private void OnTriggerEnter(Collider player)
     {
         if (player.CompareTag("Player"))

@@ -24,6 +24,7 @@ public class Flashlight : MonoBehaviour
 
     public FlashlightTypePool flashlights;
     public Light flashlight;
+    public Light haloLight;
 
     private int distance;
     private int angle;
@@ -55,14 +56,17 @@ public class Flashlight : MonoBehaviour
     {
         fow = gameObject.transform.root.gameObject.GetComponent<FieldOfView>();
         flashlight = gameObject.GetComponent<Light>();
+        haloLight = gameObject.transform.GetChild(0).GetComponent<Light>();
         InitializeDefaults();
         ToogleFlashlight(!isActive);
     }
 
+    //turn on turn off the flashlight
     void ToogleFlashlight(bool state)
     {
         isActive = state;
         flashlight.enabled = state;
+        haloLight.enabled = state;
 
         UpdateBatteryLifeProcess();
         onFlashlightUpdate?.Invoke(isActive, getLifePercentage);
@@ -80,6 +84,7 @@ public class Flashlight : MonoBehaviour
 
     }
 
+    //start coroutine to gradually remove the capacity of the flashlight
     private void UpdateBatteryLifeProcess()
     {
         if(IE_UpdateBatteryLife != null) { StopCoroutine(IE_UpdateBatteryLife); }
@@ -107,6 +112,7 @@ public class Flashlight : MonoBehaviour
             yield return null;
         }
         outOfBattery = true;
+        haloLight.enabled = false;
         fow.viewAngle = fowNoLightAngle;
         fow.viewRadius = fowNoLightDistance;
     }
@@ -141,6 +147,7 @@ public class Flashlight : MonoBehaviour
         
     }
 
+    //change the flashlight type to another with a different angle and range
     private void changeFlashlight()
     {
         ToogleFlashlight(false);

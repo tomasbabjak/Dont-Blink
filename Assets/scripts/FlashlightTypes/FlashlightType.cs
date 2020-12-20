@@ -5,7 +5,7 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "NewFlashlightType.asset", menuName = "Flashlight/type")]
 public class FlashlightType : ScriptableObject
 {
-
+    //flashlight parameters
     public int distance;
     public int angle;
     public float powerUssage;

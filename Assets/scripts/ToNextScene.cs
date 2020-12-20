@@ -5,7 +5,7 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
-
+//level management, loading a new scene
 public class ToNextScene : MonoBehaviour
 {
     public int nextSceneLoad;
@@ -30,6 +30,11 @@ public class ToNextScene : MonoBehaviour
     public void LoadNextScene() {
         Time.timeScale = 1;
         SceneManager.LoadScene(nextSceneLoad);
+    }
+
+    public void QuitGame()
+    {
+        Application.Quit();
     }
 
     private void OnTriggerEnter(Collider player)

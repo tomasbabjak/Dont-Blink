@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-
+//rotating the player's object toward the mouse position
 public class LookAtMouse : MonoBehaviour
 {
     public float speed;

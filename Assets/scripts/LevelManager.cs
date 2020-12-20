@@ -6,6 +6,9 @@ using UnityEngine.SceneManagement;
 using System.IO;
 using System.Runtime.Serialization.Formatters.Binary;
 
+
+//save and load management for saving the status of the game, respectively the status of items in individual levels
+//the state is stored in binary files after each end of the level
 [System.Serializable]
 public class LevelManager : MonoBehaviour
 {
@@ -38,18 +41,14 @@ public class LevelManager : MonoBehaviour
         }
 
         SaveSystem.SaveData(levelData);
-        Debug.Log("savedas");
-        Debug.Log(SceneManager.GetActiveScene().buildIndex + 1);
     }
 
     public static PlayerData GetLevelData ()
     {
-        Debug.Log("Loading");
-        Debug.Log(SceneManager.GetActiveScene().buildIndex);
         return levelData[SceneManager.GetActiveScene().buildIndex];
     }
 }
-
+//a class that groups a player's stored data
 [System.Serializable]
 public class PlayerData
 {

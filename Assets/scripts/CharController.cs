@@ -12,7 +12,6 @@ public class CharController : MonoBehaviour
     Vector3 forward,right;
 
     Rigidbody rb;
-    //animationStateController animationController;
 
     public event MovementDelegate onPositionChanged;
     public delegate void MovementDelegate(Vector3 velocityDirection, bool upIsDown);
@@ -23,17 +22,16 @@ public class CharController : MonoBehaviour
     {
         movespeed = defaultSpeed;
         rb = GetComponent<Rigidbody>();
+        //change of local coordinates vectors, rotate map in 90 degrees
         forward = Camera.main.transform.forward;
         forward.y = 0;
         forward = Vector3.Normalize(forward);
         right = Quaternion.Euler(new Vector3(0,90,0)) * forward;
-        //animationController = gameObject.GetComponent<animationStateController>();
         
     }
 
     void FixedUpdate()
     {
-
         Vector3 direction = new Vector3(Input.GetAxisRaw("HorizontalKey"),0, Input.GetAxisRaw("VerticalKey"));
         if(direction.magnitude > 0.1f)
         {
@@ -41,7 +39,6 @@ public class CharController : MonoBehaviour
         }
         else
         {
-            //animationController.NotMowing();
             onStopMoving?.Invoke();
         }
         
@@ -57,15 +54,15 @@ public class CharController : MonoBehaviour
 
         rb.MovePosition(transform.position += heading * movespeed * Time.deltaTime);
 
+        //angle between player heading and global forward to determine if player if facing down 
         float angle = Vector3.SignedAngle(transform.forward, heading, Vector3.up);
-
         bool upDown = false;
         if (Vector3.Angle(forward,transform.forward) > 90f)
         {
             upDown = true;
         }
         Vector3 newdirection = Quaternion.AngleAxis(angle,Vector3.up) * transform.forward;
-        //animationController.Animate(Quaternion.AngleAxis(-45,Vector3.up) * newdirection, upDown);
+        //invoke event to change animation
         onPositionChanged?.Invoke(Quaternion.AngleAxis(-45,Vector3.up) * newdirection, upDown);
 
     }

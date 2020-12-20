@@ -29,13 +29,14 @@ public class FieldOfView : MonoBehaviour
 		StartAndStopTargets();
 	}
 
-
+	//stopping the movement of enemies that are in the field of view
 	void StartAndStopTargets()
     {
 		visibleTargets.Clear();
 		List<Transform> targetsInViewRadius = new List<Transform>();
 		List<Transform> mirrorsInViewRadius = new List<Transform>();
 
+		//transforming list of coliders into list of gameobjects (transforms)
 		foreach (Collider Boid in  Physics.OverlapSphere(transform.position, viewRadius, enemiesMask))
         {
             targetsInViewRadius.Add(Boid.transform);
@@ -46,7 +47,8 @@ public class FieldOfView : MonoBehaviour
             mirrorsInViewRadius.Add(Boid.transform);
         }
 
-
+		//for each enemy in the map it is checked whether it is in the range of field of view and whether the angle between them and the player forward is less than viewRadius / 2
+		//if so, stop the movement
 		foreach(Transform enemy in allEnemies)
 		{
 			if (targetsInViewRadius.Contains(enemy))
@@ -65,6 +67,7 @@ public class FieldOfView : MonoBehaviour
 
 	}
 
+	//finding out if the enemy is reflected in the mirror
     private bool mirrorReflection(List<Transform> mirrors, Transform enemy)
 	{
 		if (mirrors.Count.Equals(0))
@@ -74,6 +77,7 @@ public class FieldOfView : MonoBehaviour
 
 		foreach(Transform mirror in mirrors)
 		{
+			//is mirror in field of view
 			Vector3 dirToMirror = (mirror.position - transform.position).normalized;
 			float dstToMirror = Vector3.Distance(transform.position, mirror.position);
 			if (!(Vector3.Angle(transform.forward, dirToMirror ) < viewAngle / 2) || Physics.Raycast(transform.position, dirToMirror, dstToMirror, obstaclesMask))
@@ -84,16 +88,18 @@ public class FieldOfView : MonoBehaviour
 			RaycastHit hit;
 			if(Physics.Raycast(transform.position, dirToMirror, out hit, dstToMirror+1, mirrorsMask))
 			{
+				//calculation of the angle of reflection
 				Vector3 reflectDirection = Vector3.Reflect(dirToMirror,hit.normal);
 				Vector3 reflectPosition = hit.point;
 				Vector3 reflectDirToTarget = (enemy.position - reflectPosition).normalized;
 				float dstToTarget = Vector3.Distance(reflectPosition, enemy.position);
 				//Debug.Log(dstToTarget);
 				
+				//shift the point of reflection in the negative direction of the mirror 
+				//so that the size of the field of view is represented by the width of the mirror
 				Vector3 anglePosition = reflectPosition;
 				float flyPosition = getTriangleH(2,viewAngle);
 				anglePosition += (-mirror.forward * flyPosition);
-				//anglePosition.z += -flyPosition;
 
 				Vector3 viewAngleA = DirFromAngle (-viewAngle / 2, false, mirror);
 				Vector3 viewAngleB = DirFromAngle (viewAngle / 2, false, mirror);
@@ -112,6 +118,7 @@ public class FieldOfView : MonoBehaviour
         return false;
     }
 
+	//the height of an isosceles triangle based on the angle and size of the base
     private float getTriangleH(int v, float viewAngle)
     {
         return (v/2)/Mathf.Tan((viewAngle/2)* Mathf.Deg2Rad);
@@ -130,6 +137,7 @@ public class FieldOfView : MonoBehaviour
 		}
 		return Vector3.Reflect(new Vector3(-Mathf.Sin(angleInDegrees * Mathf.Deg2Rad),0,-Mathf.Cos(angleInDegrees * Mathf.Deg2Rad)),mirror.forward);
 	}
+
 
 	List<Transform> FindGameObjectsInLayer(int layer)
 	{

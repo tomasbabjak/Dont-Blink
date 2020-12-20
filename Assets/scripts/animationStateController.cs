@@ -21,6 +21,8 @@ public class animationStateController : MonoBehaviour
 
     }
 
+    //change animation base on velocity direction
+    //upisdown -> true if player is turned down
     private void AnimateMovement(Vector3 velocityDirection, bool upIsDown)
     {
         if (!upIsDown)
@@ -36,6 +38,7 @@ public class animationStateController : MonoBehaviour
         animator.SetBool("isWalking",true);
     }
 
+    //back to idle state when not moving
     private void NotMowing()
     {
         animator.SetBool("isWalking",false);

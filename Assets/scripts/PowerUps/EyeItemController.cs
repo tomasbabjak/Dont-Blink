@@ -64,6 +64,7 @@ public class EyeItemController : MonoBehaviour
         }
     }
 
+    //instantiate and throw eye
     private void ThrowEye()
     {
         var ey = Instantiate(eyePrefab, transform.position + transform.forward + transform.up + transform.up, Quaternion.identity);

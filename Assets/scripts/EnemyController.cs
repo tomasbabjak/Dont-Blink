@@ -11,13 +11,10 @@ public class EnemyController : MonoBehaviour
     public float enemyspeed = 4f;
     public float defaultSpeed = 4f;
 
-    //public GameObject gameOverUI;
-
     public event EnemyDelegate onPlayerHit;
     public delegate void EnemyDelegate();
 
     void Awake() {
-        //gameOverUI.SetActive(false);
     }
 
     void Start()
@@ -37,6 +34,7 @@ public class EnemyController : MonoBehaviour
 
     }
 
+    //initiation of a gradually accelerating movement
     IEnumerator IWantToMove(float delay) {
 		while (true) {
 			yield return new WaitForSeconds (delay);
@@ -54,18 +52,11 @@ public class EnemyController : MonoBehaviour
         enemyspeed = 0f;
     }
 
-    public void UnHit()
-    {
-        //StartCoroutine
-    }
-
     private void OnTriggerEnter(Collider other){
         if (other.CompareTag("Player"))
         {
             Time.timeScale = 0;
             onPlayerHit?.Invoke();
-            //gameOverUI.SetActive(true);
-            //Debug.LogError("Not error but y suck in this game");
         }
     }
 }

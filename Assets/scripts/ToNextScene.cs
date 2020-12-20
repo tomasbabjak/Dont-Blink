@@ -5,7 +5,7 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
-
+//level management, loading a new scene
 public class ToNextScene : MonoBehaviour
 {
     public int nextSceneLoad;

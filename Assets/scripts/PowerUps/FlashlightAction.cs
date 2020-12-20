@@ -46,6 +46,7 @@ public class FlashlightAction : MonoBehaviour
         flashlight.onFlashlightUpdate += UpdateFlashlightGui;
     }
 
+    //  update flashlight state in GUI
     private void UpdateFlashlightGui(bool isOn, float intensity)
     {
         FlashlightStatus = isOn;
@@ -53,6 +54,7 @@ public class FlashlightAction : MonoBehaviour
         healthBar.fillAmount = intensity;
     }
 
+    //update count of remaining batteries
     private void UpdateBatteryGuiCount(int currentsize, int maxsize)
     {
         StringBuilder sb = new StringBuilder("Batteries: ");

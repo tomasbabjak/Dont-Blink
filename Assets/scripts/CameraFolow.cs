@@ -15,6 +15,7 @@ public class CameraFolow : MonoBehaviour
         Offset = transform.position - Target.position;
     }
  
+    // camera folowing player movement
     private void LateUpdate()
     {
         Vector3 targetPosition = Target.position + Offset;

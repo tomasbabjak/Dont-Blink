@@ -79,10 +79,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 0}
-  enemyspeed: 4
-  defaultSpeed: 4
-  gameOverUI: {fileID: 0}
-  inMove: 1
+  enemyspeed: 6
+  defaultSpeed: 6
 --- !u!136 &109997557894599692
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -109,6 +107,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 578d1e2d5bb596e229d665b4328976bf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  gameOverUI: {fileID: 0}
 --- !u!1001 &4826880728107824212
 PrefabInstance:
   m_ObjectHideFlags: 0

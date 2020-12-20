@@ -4999,6 +4999,10 @@ PrefabInstance:
       propertyPath: m_Shadows.m_NormalBias
       value: 0.12
       objectReference: {fileID: 0}
+    - target: {fileID: 328588005537696758, guid: ab07c341324036a0a8dec4f06e4efa25, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4465570770204845139, guid: ab07c341324036a0a8dec4f06e4efa25, type: 3}
       propertyPath: countText
       value: 
@@ -8927,6 +8931,10 @@ PrefabInstance:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: 6034d8a0f2766914893af71e67aafd10, type: 2}
+    - target: {fileID: 4932582564991469262, guid: ca5c83ab39caa1981864cc5d903ea262, type: 3}
+      propertyPath: doorPosition
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7256234462251357205, guid: ca5c83ab39caa1981864cc5d903ea262, type: 3}
       propertyPath: m_RootOrder
       value: 11
@@ -10884,6 +10892,26 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 585547309}
     m_Modifications:
+    - target: {fileID: 7300471419947329824, guid: dc68d9ee6020feeb9988c7e6b07ff8f9, type: 3}
+      propertyPath: m_Color.b
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7300471419947329824, guid: dc68d9ee6020feeb9988c7e6b07ff8f9, type: 3}
+      propertyPath: m_Color.g
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7300471419947329824, guid: dc68d9ee6020feeb9988c7e6b07ff8f9, type: 3}
+      propertyPath: m_Color.r
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7300471420404722308, guid: dc68d9ee6020feeb9988c7e6b07ff8f9, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7300471421147645347, guid: dc68d9ee6020feeb9988c7e6b07ff8f9, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7300471421173438926, guid: dc68d9ee6020feeb9988c7e6b07ff8f9, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5

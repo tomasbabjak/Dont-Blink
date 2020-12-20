@@ -6,16 +6,23 @@ using UnityEngine;
 public class CharController : MonoBehaviour
 {
 
-    public float movespeed = 4f;
+    public float defaultSpeed = 4f;
+    public float movespeed;
 
     Vector3 forward,right;
 
     Rigidbody rb;
 
-    // Start is called before the first frame update
+    public event MovementDelegate onPositionChanged;
+    public delegate void MovementDelegate(Vector3 velocityDirection, bool upIsDown);
+    public event NotMovingDelegate onStopMoving;
+    public delegate void NotMovingDelegate();
+
     void Start()
     {
+        movespeed = defaultSpeed;
         rb = GetComponent<Rigidbody>();
+        //change of local coordinates vectors, rotate map in 90 degrees
         forward = Camera.main.transform.forward;
         forward.y = 0;
         forward = Vector3.Normalize(forward);
@@ -23,25 +30,43 @@ public class CharController : MonoBehaviour
         
     }
 
-    // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
-
         Vector3 direction = new Vector3(Input.GetAxisRaw("HorizontalKey"),0, Input.GetAxisRaw("VerticalKey"));
         if(direction.magnitude > 0.1f)
+        {
             Move();
-            
+        }
+        else
+        {
+            onStopMoving?.Invoke();
+        }
+        
     }
 
     private void Move()
     {
+
         Vector3 rightMovement = right * movespeed * Time.deltaTime * Input.GetAxisRaw("HorizontalKey");
         Vector3 upMovement = forward * movespeed * Time.deltaTime * Input.GetAxisRaw("VerticalKey");
 
         Vector3 heading = Vector3.Normalize(rightMovement + upMovement);
 
-        //transform.forward = heading;
         rb.MovePosition(transform.position += heading * movespeed * Time.deltaTime);
-        //transform.position += heading * movespeed * Time.deltaTime;
+
+        //angle between player heading and global forward to determine if player if facing down 
+        float angle = Vector3.SignedAngle(transform.forward, heading, Vector3.up);
+        bool upDown = false;
+        if (Vector3.Angle(forward,transform.forward) > 90f)
+        {
+            upDown = true;
+        }
+        Vector3 newdirection = Quaternion.AngleAxis(angle,Vector3.up) * transform.forward;
+        //invoke event to change animation
+        onPositionChanged?.Invoke(Quaternion.AngleAxis(-45,Vector3.up) * newdirection, upDown);
+
     }
+
+
+
 }
